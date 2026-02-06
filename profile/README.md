@@ -53,16 +53,16 @@
 
 ## Структура репозиториев
 
-- [A4AD/auth-service](https://github.com/A4AD/auth-service)
-- [A4AD/workflow-service](https://github.com/A4AD/workflow-service)
-- [A4AD/request-service](https://github.com/A4AD/request-service)
-- [A4AD/comment-service](https://github.com/A4AD/comment-service)
-- [A4AD/audit-service](https://github.com/A4AD/audit-service)
-- [A4AD/notification-service](https://github.com/A4AD/notification-service)
-- [A4AD/scheduler-service](https://github.com/A4AD/scheduler-service)
-- [A4AD/api-gateway](https://github.com/A4AD/api-gateway)
-- [A4AD/docs](https://github.com/A4AD/docs) — документация, схемы, ADR
-- [A4AD/infra](https://github.com/A4AD/infra) — terraform / helm / ansible
+- [A4AD/auth-service](https://github.com/A4AD-team/auth-service)
+- [A4AD/workflow-service](https://github.com/A4AD-team/workflow-service)
+- [A4AD/request-service](https://github.com/A4AD-team/request-service)
+- [A4AD/comment-service](https://github.com/A4AD-team/comment-service)
+- [A4AD/audit-service](https://github.com/A4AD-team/audit-service)
+- [A4AD/notification-service](https://github.com/A4AD-team/notification-service)
+- [A4AD/scheduler-service](https://github.com/A4AD-team/scheduler-service)
+- [A4AD/api-gateway](https://github.com/A4AD-team/api-gateway)
+- [A4AD/docs](https://github.com/A4AD-team/docs) — документация, схемы, ADR
+- [A4AD/infra](https://github.com/A4AD-team/infra) — terraform / helm / ansible
 
 ## Связаться с нами
 
