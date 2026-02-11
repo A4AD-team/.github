@@ -4,7 +4,7 @@
 Современный движок бизнес-процессов и согласований для малого и среднего бизнеса
 
 [![GitHub](https://img.shields.io/badge/GitHub-A4AD-181717?logo=github)](https://github.com/A4AD)
-[![License](https://img.shields.io/badge/MIT%202.0-red.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/MIT%-red.svg)](https://opensource.org/licenses/MIT)
 [![Go](https://img.shields.io/badge/Go-1.23+-00ADD8?logo=go)](https://go.dev/)
 [![Status](https://img.shields.io/badge/Status-Pre--Alpha-orange)](https://github.com/A4AD)
 
