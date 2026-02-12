@@ -1,71 +1,70 @@
 # A4AD Team
 
-**Approval Automation for Agile Departments**  
-Современный движок бизнес-процессов и согласований для малого и среднего бизнеса
+**A4AD Forum**  
+Простой, современный и масштабируемый форум для сообществ
 
-[![GitHub](https://img.shields.io/badge/GitHub-A4AD-181717?logo=github)](https://github.com/A4AD)
-[![License](https://img.shields.io/badge/MIT%20-red.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Org](https://img.shields.io/badge/Org-A4AD-181717?logo=github)](https://github.com/A4AD-team)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Status](https://img.shields.io/badge/Status-Early%20Development-yellow)](https://github.com/A4AD-team)
 [![Go](https://img.shields.io/badge/Go-1.23+-00ADD8?logo=go)](https://go.dev/)
-[![Status](https://img.shields.io/badge/Status-Pre--Alpha-orange)](https://github.com/A4AD)
+[![NestJS](https://img.shields.io/badge/NestJS-10+-E0234E?logo=nestjs)](https://nestjs.com/)
 
-## О проекте
+## Что это
 
-- легковесный, масштабируемый **движок согласований** (approval workflow engine), созданный специально для небольших и средних компаний, где нужно быстро и надёжно согласовывать:
+A4AD — это **лёгкий и современный форум**, который можно запустить для любого сообщества: от локальных клубов и хобби-групп до внутренних корпоративных обсуждений и открытых проектов.
 
-- отпуска и больничные
-- закупки и командировки
-- счета и платежи
-- любые кастомные заявки
+Цель — сделать платформу, которую легко развернуть, поддерживать и кастомизировать, без лишней сложности.
 
-Мы делаем систему, которую можно развернуть за часы, а не месяцы, и которая не требует отдельного BPM-специалиста.
+### Основные возможности (на данный момент в разработке)
 
-**Ключевые принципы:**
-- Микросервисная архитектура с минимальным coupling
-- Event-driven + REST + GraphQL-ready
-- Гибкие workflow (в т.ч. параллельные этапы и условия)
-- Полная аудит-трассировка и уведомления
-- Поддержка делегирования, доработок и отмен
+- Регистрация, авторизация, роли (user / moderator / admin)  
+- Публичные и редактируемые профили пользователей  
+- Создание, редактирование, удаление постов  
+- Дерево комментариев с ответами и лайками  
+- Уведомления о комментариях, ответах, лайках, упоминаниях  
+- Микросервисная архитектура для удобного масштабирования  
 
 ## Текущий статус (февраль 2026)
 
-- Pre-Alpha / внутренний MVP
-- Идёт активная разработка core-сервисов
-- Планируем первую закрытую бету — Q2 2026
+- Early Development → активно пишем core-сервисы  
+- MVP (базовый форум с постами и комментариями) — планируем к Q2 2026  
+- Первая публичная версия (open-source) — ориентировочно Q3 2026  
 
-## Архитектура и стек (2026)
+## Архитектура и стек
 
-| Компонент              | Язык / Фреймворк          | База данных / Хранилище     | Примечание                              |
-|------------------------|----------------------------|------------------------------|-----------------------------------------|
-| Auth Service           | Java / Spring Boot         | PostgreSQL                   | IAM + JWT + RBAC                        |
-| Workflow Service       | Go                         | Neo4j (graph)                | Графовые маршруты + условия             |
-| Request Service        | Go                         | PostgreSQL                   | Жизненный цикл заявок                   |
-| Comment Service        | NestJS / TypeScript        | MongoDB                      | История комментариев                    |
-| Audit Service          | Go                         | ClickHouse                   | Append-only логи + аналитика            |
-| Notification Service   | NestJS                     | Redis + Kafka                | Email / in-app / reminders              |
-| Scheduler Service      | Go                         | Redis / PostgreSQL           | Таймауты, напоминания, эскалации        |
-| API Gateway            | Go / Fiber                 | —                            | Routing, auth, rate-limit, tracing      |
+| Компонент              | Язык / Фреймворк          | База данных / Хранилище     | Кратко о назначении                     |
+|------------------------|----------------------------|------------------------------|------------------------------------------|
+| API Gateway            | Go / Fiber                 | —                            | Единая точка входа, JWT, rate-limit      |
+| Auth Service           | Java / Spring Boot         | PostgreSQL                   | Регистрация, логин, JWT, роли            |
+| Profile Service        | Go                         | PostgreSQL                   | Профили, аватар, статистика              |
+| Post Service           | Go                         | PostgreSQL                   | Посты, CRUD, счётчики                    |
+| Comment Service        | NestJS                     | MongoDB                      | Комментарии (threaded), лайки            |
+| Notification Service   | NestJS                     | Redis + PostgreSQL/MongoDB   | Уведомления (in-app, email)              |
 
-**Инфраструктура & Observability**
-- Docker + docker-compose (dev)
-- Kubernetes-ready (Helm charts в планах)
-- OpenTelemetry + Prometheus + Grafana / Loki
-- Kafka для событий
+**Инфраструктура и observability**  
+- Docker + docker-compose (для локальной разработки)  
+- Kubernetes-ready (в планах Helm-чарты)  
+- OpenTelemetry, Prometheus, Grafana  
+- Redis Pub/Sub или Kafka для событий (в процессе выбора)  
 
-## Структура репозиториев
+## Структура репозиториев (multi-repo)
 
-- [A4AD/auth-service](https://github.com/A4AD-team/auth-service)
-- [A4AD/workflow-service](https://github.com/A4AD-team/workflow-service)
-- [A4AD/request-service](https://github.com/A4AD-team/request-service)
-- [A4AD/comment-service](https://github.com/A4AD-team/comment-service)
-- [A4AD/audit-service](https://github.com/A4AD-team/audit-service)
-- [A4AD/notification-service](https://github.com/A4AD-team/notification-service)
-- [A4AD/scheduler-service](https://github.com/A4AD-team/scheduler-service)
-- [A4AD/api-gateway](https://github.com/A4AD-team/api-gateway)
-- [A4AD/docs](https://github.com/A4AD-team/docs) — документация, схемы, ADR
-- [A4AD/infra](https://github.com/A4AD-team/infra) — terraform / helm / ansible
+- [api-gateway](https://github.com/A4AD-team/api-gateway)  
+- [auth-service](https://github.com/A4AD-team/auth-service)  
+- [profile-service](https://github.com/A4AD-team/profile-service)  
+- [post-service](https://github.com/A4AD-team/post-service)  
+- [comment-service](https://github.com/A4AD-team/comment-service)  
+- [notification-service](https://github.com/A4AD-team/notification-service)  
+- [docs](https://github.com/A4AD-team/docs) — документация, схемы, ADR  
+- [infra](https://github.com/A4AD-team/infra) — terraform, helm, ansible (будет позже)  
 
-## Связаться с нами
+## Как подключиться / внести вклад
 
-- GitHub Discussions → для вопросов и идей
-- Issues → только баги и фича-реквесты
-- Email: team@openfly.tech
+- **GitHub Discussions** — вопросы, идеи, предложения по фичам  
+- **Issues** — баги и конкретные задачи  
+- **Pull Requests** — очень приветствуются (см. CONTRIBUTING.md в каждом репозитории)  
+- **Email** — team@a4ad.dev  
+
+Мы открыты к коллаборации: ищем единомышленников для core-команды и open-source участников.
+
+Присоединяйтесь — строим удобный форум вместе! 🚀
